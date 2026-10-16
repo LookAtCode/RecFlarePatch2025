@@ -1,0 +1,9 @@
+# Merge this table into your own Codex configuration; replace the paths.
+# Hosted web chats do not read a local Codex configuration file.
+[mcp_servers.recflare]
+command = "py"
+args = ["-3.11", "C:\\Code\\RecFlarePatch2025\\mcp\\server.py", "--workspace", "C:\\RecFlareBuilds", "--server", "https://ns.recflare.net"]
+startup_timeout_sec = 10
+tool_timeout_sec = 180
+# Optional alternative to the local interactive login:
+# env_vars = ["RECFLARE_ACCESS_TOKEN"]

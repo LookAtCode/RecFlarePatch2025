@@ -1,0 +1,55 @@
+name: MCP builder
+
+on:
+  push:
+    branches: [main, MCP-Test]
+    paths: ['mcp/**', '.github/workflows/mcp.yml']
+  pull_request:
+    branches: [main]
+    paths: ['mcp/**', '.github/workflows/mcp.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: MCP / ${{ matrix.os }} / Python ${{ matrix.python }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python: ['3.11', '3.13']
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install independent test clients
+        run: python -m pip install mcp==1.26.0 "protobuf>=5,<7"
+      - name: Test protocol, geometry, snapshots, and HTTP contracts
+        working-directory: mcp
+        env:
+          REQUIRE_EXTERNAL: '1'
+        run: python -m unittest discover -s tests -v
+      - name: Compile Python sources
+        run: python -m compileall -q mcp/recflare_mcp mcp/server.py
+
+  package:
+    needs: test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload source bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: RecFlare-MCP-Test
+          if-no-files-found: error
+          path: |
+            mcp/server.py
+            mcp/recflare_mcp/*.py
+            mcp/README.md
+            mcp/codex.example.toml
+            mcp/docs/*.md
+            mcp/examples/*.json

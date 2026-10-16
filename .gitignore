@@ -52,3 +52,12 @@ desktop.ini
 # priv.xml belongs on the voice server only -- never in the repo or the release zip.
 pub.xml
 priv.xml
+
+# Local MCP credentials, room data, and Python caches (never distribute these).
+auth.json
+*.room
+*.binpb
+mcp-workspace/
+__pycache__/
+*.py[cod]
+.venv/

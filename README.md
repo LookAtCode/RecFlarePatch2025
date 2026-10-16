@@ -1,5 +1,10 @@
 # Rec Room 2025 Patch
 
+The **MCP-Test** branch includes an experimental [AI building MCP helper](mcp/README.md)
+for saved Maker Pen rooms. It adds geometry-building tools, local backups, previews,
+and existing-API save uploads; the native DLL remains unchanged. Real-client loading
+of generated geometry still needs verification. Start with the helper's quick start.
+
 **Credits:** Fork of https://github.com/Carpetsoft/Rec-Room-2025-Patch
 
 This fork adds more support for photon settings and moves overrides into configuration
@@ -60,3 +65,4 @@ Referee bypass and the rest of the patch still apply, the client just keeps talk
 | `EnableTracing` | `false` | verbose diagnostic hooks; chatty, only for investigating |
 
 Whatever ends up in effect is logged as `[Config] ...` in `2025patch.log`.
+

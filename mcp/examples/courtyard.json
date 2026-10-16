@@ -1,0 +1,14 @@
+{
+  "operations": [
+    {"op":"create","template":"block","name":"floor","position":[0,-0.25,0],"size":[20,0.5,20],"color":"#8b949e"},
+    {"op":"create","template":"block","name":"wall-north","position":[0,2,10],"size":[20,4,0.5],"color":"#d6c5a6"},
+    {"op":"create","template":"block","name":"wall-west","position":[-10,2,0],"size":[0.5,4,20],"color":"#d6c5a6"},
+    {"op":"create","template":"block","name":"wall-east","position":[10,2,0],"size":[0.5,4,20],"color":"#d6c5a6"},
+    {"op":"create","template":"block","name":"entrance-left","position":[-6,2,-10],"size":[8,4,0.5],"color":"#d6c5a6"},
+    {"op":"create","template":"block","name":"entrance-right","position":[6,2,-10],"size":[8,4,0.5],"color":"#d6c5a6"},
+    {"op":"create","template":"block","name":"entrance-lintel","position":[0,3.75,-10],"size":[4,0.5,0.5],"color":"#a98053"},
+    {"op":"grid","template":"block","name":"pillar","position":[-6,2.5,-5],"counts":[2,1,2],"spacing":[12,0,10],"size":[0.8,5,0.8],"color":"#e4e4e0"},
+    {"op":"repeat","template":"block","name":"stair","count":10,"position":[-7,0.2,2],"step":[1,0.4,0],"size":[1,0.4,3],"color":"#a98053"},
+    {"op":"create","template":"block","name":"upper-platform","position":[5,4,2],"size":[5,0.4,5],"color":"#a98053"}
+  ]
+}
